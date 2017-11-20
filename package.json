@@ -1,0 +1,30 @@
+{
+  "name": "node-artpay",
+  "version": "0.0.0",
+  "description": "Node module for Artpay API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 5000 test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/noglik/node-artpay.git"
+  },
+  "keywords": [
+    "artpay"
+  ],
+  "author": "noglik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noglik/node-artpay/issues"
+  },
+  "homepage": "https://github.com/noglik/node-artpay#readme",
+  "dependencies": {
+    "q": "^1.5.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "should": "^13.1.3"
+  }
+}
