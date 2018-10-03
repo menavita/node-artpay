@@ -4,11 +4,12 @@ var Q = require('q');
 var request = require('request');
 var crypto = require('crypto');
 
-function Artpay(url, key1, key2) {
+function Artpay(url, key1, key2, alg) {
 
   this.url = url;
   this.key1 = key1;
   this.key2 = key2;
+  this.alg = alg ? alg : 'sha512';
 
 }
 
@@ -26,7 +27,7 @@ Artpay.prototype.createInvoice = function(params) {
     if (res.headers.location) {
       d.resolve(res.headers.location)
     } else {
-      d.reject(body);
+      d.reject(res.headers['x-artpay-error']);
     }
   })
 
@@ -44,7 +45,7 @@ Artpay.prototype.createSignature = function(params) {
 
   result += this.key1;
 
-  result = crypto.createHash('sha256').update(result, 'utf8').digest('hex');
+  result = crypto.createHash(this.alg).update(result, 'utf8').digest('hex');
 
   return result;
 
@@ -65,7 +66,7 @@ Artpay.prototype.checkSignature = function(params) {
 
   result += this.key2;
 
-  if (siganture == crypto.createHash('sha256').update(result, 'utf8').digest('hex')) return true;
+  if (siganture == crypto.createHash(this.alg).update(result, 'utf8').digest('hex')) return true;
 
 }
 

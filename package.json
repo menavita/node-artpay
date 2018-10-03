@@ -1,6 +1,6 @@
 {
   "name": "node-artpay",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Node module for Artpay API.",
   "main": "index.js",
   "scripts": {

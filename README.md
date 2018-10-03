@@ -4,7 +4,13 @@ Node module for Artpay API.
 ```javascript
 var Artpay = require('node-artpay');
 
-var artpay = new Artpay('https://engine.artpay.by/create/', 'secretkey1', 'secretkey2');
+var artpay = new Artpay('https://engine.artpay.by/create/', 'secretkey1', 'secretkey2'[, 'sha512']);
+```
+Last param, hash algorithm, is optional, by default sha512. Added since Artpay changed standart hash algorithm.
+
+Sandbox url:
+```
+https://gateway-sandbox-artpay.dev-3c.by/create/
 ```
 ## Functions
 ### Create invoice
